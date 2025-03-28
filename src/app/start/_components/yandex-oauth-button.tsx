@@ -1,15 +1,15 @@
-import Image from 'next/image';
-import Yandex from '@/assets/Yandex.svg';
-import { Button } from '@/components/ui/button';
-import { redirect } from 'next/navigation';
-import { getApiRoute } from '@/lib/api';
+import Image from "next/image";
+import Yandex from "@/assets/Yandex.svg";
+import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
+import { getApiRoute } from "@/lib/api";
 
 const YandexOAuthButton = () => {
   return (
     <form
       action={async () => {
-        'use server';
-        const route = getApiRoute('/api/oauth/yandex/login');
+        "use server";
+        const route = getApiRoute("/api/oauth/yandex/login");
         return redirect(route);
       }}
     >

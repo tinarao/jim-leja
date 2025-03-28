@@ -1,5 +1,5 @@
-import YandexOAuthButton from './_components/yandex-oauth-button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import YandexOAuthButton from "./_components/yandex-oauth-button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const StartPage = () => {
   return (

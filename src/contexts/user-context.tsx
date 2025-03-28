@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { fetchUserData } from '@/lib/api/user';
-import { User } from '@/types/user';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { fetchUserData } from "@/lib/api/user";
+import { User } from "@/types/user";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface UserContextType {
   user?: User;
@@ -26,7 +26,7 @@ export const UserProvider = ({ children }: React.PropsWithChildren) => {
         const user = await fetchUserData();
         setUser(user);
       } catch (err) {
-        console.warn('User can not be authenticated.', err);
+        console.warn("User can not be authenticated.", err);
       } finally {
         setIsLoading(false);
       }
@@ -45,7 +45,7 @@ export const UserProvider = ({ children }: React.PropsWithChildren) => {
 export const useUser = () => {
   const ctx = useContext(UserContext);
   if (!ctx) {
-    throw new Error('useUser must be used within a UserProvider');
+    throw new Error("useUser must be used within a UserProvider");
   }
 
   return ctx;
