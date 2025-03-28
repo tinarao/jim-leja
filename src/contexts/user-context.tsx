@@ -19,7 +19,6 @@ const UserContext = createContext<UserContextType>({
 export const UserProvider = ({ children }: React.PropsWithChildren) => {
   const [user, setUser] = useState<User | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,9 +26,7 @@ export const UserProvider = ({ children }: React.PropsWithChildren) => {
         const user = await fetchUserData();
         setUser(user);
       } catch (err) {
-        const e = err as Error;
-        console.error(e);
-        setError(e.message);
+        console.warn('User can not be authenticated.', err);
       } finally {
         setIsLoading(false);
       }
@@ -39,7 +36,7 @@ export const UserProvider = ({ children }: React.PropsWithChildren) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, isLoading, error }}>
+    <UserContext.Provider value={{ user, isLoading }}>
       {children}
     </UserContext.Provider>
   );

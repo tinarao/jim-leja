@@ -1,7 +1,7 @@
 export const getApiPublicUrl = () => {
-    const route = process.env.NEXT_PUBLIC_API_URL
+    let route = process.env.NEXT_PUBLIC_API_URL
     if (!route) {
-        throw new Error("NEXT_PUBLIC_API_URL is not defined")
+        route = "http://localhost:8080"
     }
 
     return route
