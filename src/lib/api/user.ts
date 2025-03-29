@@ -26,6 +26,6 @@ export const fetchUserData = async (): Promise<User> => {
     throw new Error("Request failed with status " + res.status);
   }
 
-  const data: { user: User } = await res.json();
-  return data.user;
+  const data: User = await res.json();
+  return data;
 };

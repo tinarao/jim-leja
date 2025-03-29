@@ -3,12 +3,7 @@
 import { cookies } from "next/headers";
 import { getApiRoute } from ".";
 
-type KeysResponse = {
-    privateKey: string
-    publicKey: string
-}
-
-export const fetchKeys = async (): Promise<KeysResponse> => {
+export const fetchPublicKey = async (): Promise<string> => {
     const cookieStorage = await cookies();
     const token = cookieStorage.get("session");
     let headers: HeadersInit = {};
@@ -30,6 +25,6 @@ export const fetchKeys = async (): Promise<KeysResponse> => {
         throw new Error("Request failed with status " + res.status);
     }
 
-    const data: KeysResponse = await res.json();
-    return data;
+    const { publicKey }: { publicKey: string } = await res.json();
+    return publicKey;
 }

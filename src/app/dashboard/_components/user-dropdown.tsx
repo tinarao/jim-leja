@@ -14,9 +14,13 @@ import Image from "next/image";
 const UserDropdown = ({ user }: { user: User }) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="cursor-pointer">
+      <DropdownMenuTrigger
+        title="Нажмите, чтобы открыть меню управления аккаунтом"
+        asChild
+        className="cursor-pointer"
+      >
         <Image
-          className="rounded-lg"
+          className="rounded-lg transition hover:scale-90"
           src={user.avatarUrl!}
           width={50}
           height={50}

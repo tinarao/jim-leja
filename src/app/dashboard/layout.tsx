@@ -37,7 +37,7 @@ const DashboardLayout = async ({ children }: PropsWithChildren) => {
     <div className="flex h-screen flex-col space-y-4 py-4">
       <header className="container mx-auto flex items-center justify-between rounded-md bg-neutral-50 p-4">
         <p className="text-xl font-bold">Жим Лёжа</p>
-        <UserDropdown user={user} />
+        {user && <UserDropdown user={user} />}
       </header>
       <main className="container mx-auto flex-1 rounded-md p-4">
         <div className="grid h-full grid-cols-7">
